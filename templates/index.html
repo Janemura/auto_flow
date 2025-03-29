@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traffic Management System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<h1>Autoflow SmartTraffic Management System</h1>
+<h2>Live Traffic Video Feed</h2>
+<img src="{{ video_feed_url }}" alt="Video Feed" width="100%">
+<h2>Current Traffic Data</h2>
+<p>Lane 1 Cars: <span id="lane1_cars">{{ data.lane1_cars }}</span></p>
+<p>Lane 2 Cars: <span id="lane2_cars">{{ data.lane2_cars }}</span></p>
+<p>Traffic Signal Status: <span id="signal_status">{{ data.signal_status }}</span></p>
+<p>Route Recommendation: <span id="route_recommendation">{{ data.route_recommendation }}</span></p>
+<h2>Upload a New Video</h2>
+<form action="/" method="post" enctype="multipart/form-data">
+<label for="video">Select a video file:</label>
+<input type="file" name="video" id="video" accept="video/*" required>
+<button type="submit">Upload</button>
+</form>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
